@@ -1,12 +1,8 @@
 Lightweight and responsive website template.
 Website has multiple functions implemented in PHP with the use of MySQL.
 
-
 Demo: 
 http://vps604032.ovh.net/site/
-
-(when registering on the demo site, please do not use the gmail email address, since google is rejecting emails from this domain)
-
 
 
 Available functions: 
@@ -27,7 +23,6 @@ TODO:
 - replace the mysqli database functions with the PDO
 - user/admin login permission system
 - interface for adding and editing the entries in the news system, gallery and product list
-
 
 
 How to install: 
