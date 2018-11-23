@@ -3,7 +3,7 @@ Website has multiple functions implemented in PHP with the use of MySQL.
 
 Demo: 
 http://vps604032.ovh.net/site/
-
+(please do not use the Gmail e-mail address for the account registration, since the test domain is currently blocked by Google)
 
 Available functions: 
 - news system
