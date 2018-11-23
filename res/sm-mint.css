@@ -7,10 +7,10 @@
   padding: 13px 20px;
   /* make room for the toggle button (sub indicator) */
   padding-right: 58px;
-  color: #333333;
+  color: #616161;
   font-family: 'Open Sans', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 13px;
+  font-weight: 700;
   line-height: 17px;
   text-decoration: none;
 }
@@ -53,7 +53,7 @@
   background: rgba(228, 228, 228, 0.2);
 }
 .sm-mint ul a, .sm-mint ul a:hover, .sm-mint ul a:focus, .sm-mint ul a:active {
-  font-size: 14px;
+  font-size: 13px;
   border-left: 8px solid transparent;
   line-height: 13px;
 }
@@ -124,15 +124,15 @@
   }
   .sm-mint a, .sm-mint a:hover, .sm-mint a:focus, .sm-mint a:active, .sm-mint a.highlighted {
     padding: 11px 20px;
-    color: #333333;
+    color: #333;
   }
   .sm-mint a:hover, .sm-mint a:focus, .sm-mint a:active {
     background: #ffffff;
-    color: #333333;
+    color: #333;
   }
   .sm-mint a.highlighted {
     background: #ffffff;
-    color: #333333;
+    color: #333;
     -webkit-box-shadow: 0 3px 2px rgba(0, 0, 0, 0.25);
     -moz-box-shadow: 0 3px 2px rgba(0, 0, 0, 0.25);
     box-shadow: 0 3px 2px rgba(0, 0, 0, 0.25);
@@ -201,7 +201,8 @@
   .sm-mint ul a, .sm-mint ul a:hover, .sm-mint ul a:focus, .sm-mint ul a:active, .sm-mint ul a.highlighted {
     border: 0 !important;
     padding: 10px 20px;
-    color: #333333;
+    color: #333;
+	font-weight: 500;
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     -ms-border-radius: 0;
