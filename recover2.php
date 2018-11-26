@@ -8,7 +8,7 @@ include 'header.php';
 
 <?php
 
-$msg = '<span class="message error">Verification failed. Please try resetting your password again.</span><br>';
+$msg = '<span class="message error">Verification failed. Please try resetting your password again.</span>';
 
 if (!empty($_GET['code']) && isset($_GET['code']))
 	$code = $_GET['code'];
@@ -24,27 +24,27 @@ if (isset($_POST['code'])) {
 	$confirmNew = stripslashes(Trim($confirmNew));
 
 	if (preg_match($pattern_code, $code) || (StrLen($code) != 32)) {
-		$msg = '<span class="message error">Verification failed. Please try resetting your password again.</span><br>';
+		$msg = '<span class="message error">Verification failed. Please try resetting your password again.</span>';
 	}
 
 	elseif (empty($newPassword) || empty($confirmNew)) {
-		$msg = '<span class="message error">One or more fields are empty.</span><br>';
+		$msg = '<span class="message error">One or more fields are empty.</span>';
 	}
 
 	elseif (preg_match($pattern, $newPassword)) {
-		$msg = '<span class="message error">Password can contain only a-Z  0-9 _ . - + ! @ # $ characters.</span><br>';
+		$msg = '<span class="message error">Password can contain only a-Z  0-9 _ . - + ! @ # $ characters.</span>';
 	}
 
 	elseif (preg_match($pattern, $confirmNew)) {
-		$msg = '<span class="message error">Password can contain only a-Z  0-9 _ . - + ! @ # $ characters.</span><br>';
+		$msg = '<span class="message error">Password can contain only a-Z  0-9 _ . - + ! @ # $ characters.</span>';
 	}
 
 	elseif ((StrLen($newPassword) < 6) or (StrLen($newPassword) > 30)) {
-		$msg = '<span class="message error">New password must have at least 6, and not more than 30 characters.</span><br>';
+		$msg = '<span class="message error">New password must have at least 6, and not more than 30 characters.</span>';
 	}
 
 	elseif ($newPassword !== $confirmNew) {
-		$msg = '<span class="message error">New Password and Confirm New Password fields must match.</span><br>';
+		$msg = '<span class="message error">New Password and Confirm New Password fields must match.</span>';
 	}
 
 	else {
@@ -72,7 +72,7 @@ if (isset($_POST['code'])) {
 				mysqli_query($db_link, "UPDATE user SET password = '$encryptNewPassword' WHERE userid = '$userid'") or die("Couldn't perform");
 				mysqli_query($db_link, "UPDATE validation SET activated = 1 WHERE code='$code'") or die ("Can't execute query5.");
 				mysqli_query($db_link, "INSERT INTO login VALUES ('$email', 'recover','$ip_client','$date')") or die(mysqli_error($db_link));
-				$msg = '<span class="message info">Password for account: <span style="color:#1B548D;font-weight:bold">'.$email.'</span> has been changed!</span><br>';
+				$msg = '<span class="message info">Password for account: <span style="color:#1B548D;font-weight:bold">'.$email.'</span> has been changed!</span>';
 
 				$to      = "$email";
 				$subject = "New Password - $site_name";
@@ -88,18 +88,18 @@ EOD;
 			}
 
 			else {
-				$msg = '<span class="message error">Unknown error 2. Please contact the administrator.</span><br>';
+				$msg = '<span class="message error">Unknown error 2. Please contact the administrator.</span>';
 			}
 		}
 
 		else {
-			$msg = '<span class="message error">This validation code has expired.</span><br>';
+			$msg = '<span class="message error">This validation code has expired.</span>';
 		}
 
 		CleanUpDB();
 	}
 
-	echo $msg;	
+	echo $msg ,'<br>';
 }
 
 ?>

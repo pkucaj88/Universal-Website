@@ -7,7 +7,6 @@ include 'header.php';
 <div class="block">
 
 <?php
-
 if (isset($userid)) {
 	GetMyConnection();
 ?>

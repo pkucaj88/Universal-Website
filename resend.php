@@ -11,7 +11,7 @@ $securimage = new Securimage();
 
 <?php
 
-$msg = '<span class="message info">If aren\'t getting the account activation e-mail, please input your username in the field below to re-send it.</span>';
+$msg = 'If aren\'t getting the account activation e-mail, please input your username in the field below to re-send it.';
 
 if (isset($_POST['email'])) {
 
@@ -82,9 +82,10 @@ EOD;
 	}
 }
 
-echo $msg;
+echo $msg ,'<br>';
 ?>
-<br><br><br>
+
+<br>
 <form method='post' action='resend.php'>
 <table class='form'>
 <tr>

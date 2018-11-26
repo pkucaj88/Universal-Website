@@ -21,31 +21,31 @@ if (isset($userid)) {
 
 
 		if (empty($oldPassword) || empty($newPassword) || empty($confirmNew)) {
-			$msg = '<span class="message error">One or more fields are empty.</span><br>';
+			$msg = '<span class="message error">One or more fields are empty.</span>';
 		}
 
 		elseif (preg_match($pattern, $oldPassword)) {
-			$msg = '<span class="message error">Incorrect current password.</span><br>';
+			$msg = '<span class="message error">Incorrect current password.</span>';
 		}
 
 		elseif (preg_match($pattern, $newPassword)) {
-			$msg = '<span class="message error">Password can contain only a-Z  0-9 _  . - + ! @ # $ characters.</span><br>';
+			$msg = '<span class="message error">Password can contain only a-Z  0-9 _  . - + ! @ # $ characters.</span>';
 		}
 
 		elseif (preg_match($pattern, $confirmNew)) {
-			$msg = '<span class="message error">Password can contain only a-Z  0-9 _  . - + ! @ # $ characters.</span><br>';
+			$msg = '<span class="message error">Password can contain only a-Z  0-9 _  . - + ! @ # $ characters.</span>';
 		}
 
 		elseif ((StrLen($oldPassword) < 4) or (StrLen($oldPassword) > 30)) {
-			$msg = '<span class="message error">Password must have at least 4, and not more than 30 characters.</span><br>';
+			$msg = '<span class="message error">Password must have at least 4, and not more than 30 characters.</span>';
 		}
 
 		elseif ((StrLen($newPassword) < 6) or (StrLen($newPassword) > 30)) {
-			$msg = '<span class="message error">New password must have at least 6, and not more than 30 characters.</span><br>';
+			$msg = '<span class="message error">New password must have at least 6, and not more than 30 characters.</span>';
 		}
 
 		elseif ($newPassword !== $confirmNew) {
-			$msg = '<span class="message error">New Password and Confirm New Password fields must match.</span><br>';
+			$msg = '<span class="message error">New Password and Confirm New Password fields must match.</span>';
 		}
 
 
@@ -72,7 +72,7 @@ if (isset($userid)) {
 
 					mysqli_query($db_link, "UPDATE user SET password = '$encryptNewPassword' WHERE userid = '$userid'") or die("Couldn't perform");
 					mysqli_query($db_link, "INSERT INTO login VALUES ('$email', 'changepw','$ip_client','$date')") or die(mysqli_error($db_link));
-					$msg = '<span class="message info">Password for account: <span style="color:#1B548D;font-weight:bold">'.$email.'</span> has been changed!</span><br>';
+					$msg = '<span class="message info">Password for account: <span style="color:#1B548D;font-weight:bold">'.$email.'</span> has been changed!</span>';
 
 
 					$to      = "$email";
@@ -90,18 +90,18 @@ EOD;
 				}
 
 				else {
-					$msg = '<span class="message error">Wrong password. Please try again.</span><br>';
+					$msg = '<span class="message error">Wrong password. Please try again.</span>';
 				}
 			}
 
 			else {
-				$msg = '<span class="message error">Unknown error. Please contact the administrator.</span><br>';
+				$msg = '<span class="message error">Unknown error. Please contact the administrator.</span>';
 			}
 
 			CleanUpDB();
 		}
 
-		echo $msg;
+		echo $msg ,'<br>';
 	}
 ?>
 <br>

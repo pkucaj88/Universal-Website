@@ -5,7 +5,7 @@ require_once 'includes/register_ban.php';
 ?>
 
 <div class="box round first">
-<h2>User Panel</h2>
+<h2>Log in</h2>
 <div class="block">
 
 <?php

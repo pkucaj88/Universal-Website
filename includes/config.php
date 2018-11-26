@@ -6,9 +6,9 @@ if (!isset($db_link)) {
 
 // basic site config
 $site_name = "Universal Website";
-$site_description = "Example description";
+$site_description = "Example description.";
 $logo_text = "Universal Website";
-$site_address = "http://vps604032.ovh.net/site/";    // with trailing slash
+$site_address = "http://site.example.com/";    // with trailing slash at the end
 $site_email = "example_email@live.com";
 $payment_email = "example_email2@live.com";
 

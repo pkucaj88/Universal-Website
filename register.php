@@ -24,52 +24,52 @@ if (isset($_POST['email'])) {
 
 
 	if (empty($email) || empty($pass) || empty($repass)) {
-		$msg = '<span class="message error">One or more fields are empty.</span><br>';
+		$msg = '<span class="message error">One or more fields are empty.</span>';
 	}
 
 	elseif (!(isset($_POST['tos']))) {
-		$msg = '<span class="message error">You must agree to the terms of service if you want to register an account.</span><br>';
+		$msg = '<span class="message error">You must agree to the terms of service if you want to register an account.</span>';
 	}
 
 	elseif ((StrLen($email) < 6) or (StrLen($email) > 50)) {
-		$msg = '<span class="message error">Email Address must have at least 6 and not more than 50 characters.</span><br>';
+		$msg = '<span class="message error">Email Address must have at least 6 and not more than 50 characters.</span>';
 	}
 
 	elseif (!preg_match($pattern_email, $email)) {
-	 	$msg = '<span class="message error">Incorrect Email Address.</span><br>';
+	 	$msg = '<span class="message error">Incorrect Email Address.</span>';
 	}
 
 	elseif (preg_match($pattern, $pass)) {
-		$msg = '<span class="message error">Password can contain only a-Z 0-9 _  . - + ! @ # $ characters.</span><br>';
+		$msg = '<span class="message error">Password can contain only a-Z 0-9 _  . - + ! @ # $ characters.</span>';
 	}
 
 	elseif (preg_match($pattern, $repass)) {
-		$msg = '<span class="message error">Confirmation password error.</span><br>';
+		$msg = '<span class="message error">Confirmation password error.</span>';
 	}
 
 	elseif ((StrLen($pass) < 6) or (StrLen($pass) > 30)) {
-		$msg = '<span class="message error">Password must have at least 4 and not more than 30 characters.</span><br>';
+		$msg = '<span class="message error">Password must have at least 4 and not more than 30 characters.</span>';
 	}
 
 	elseif ((StrLen($repass) < 6) or (StrLen($repass) > 30)) {
-		$msg = '<span class="message error">Password must have at least 4 and not more than 30 characters.</span><br>';
+		$msg = '<span class="message error">Password must have at least 4 and not more than 30 characters.</span>';
 	}
 
 	elseif ($repass != $pass) {
-		$msg = '<span class="message error">Confirmation password error.</span><br>';
+		$msg = '<span class="message error">Confirmation password error.</span>';
 	}
 
 	elseif (contains($email, $banned_domains)) {
-		$msg = '<span class="message error">This email <b>'.$email.'</b> contains banned word or is a spam address. Please use different email.</span><br>';
+		$msg = '<span class="message error">This email <b>'.$email.'</b> contains banned word or is a spam address. Please use different email.</span>';
 		error_log(date('[Y-m-d H:i] '). "Banned Email domain - username: $Login, email: $email, IP: $ip_client" . PHP_EOL, 3, BAN_LOG);
 	}
 
 	elseif ($securimage->check($_POST['captcha_code']) == false) {
-		$msg = '<span class="message error">The security code entered was incorrect. Please make sure you have enabled JavaScript.</span><br>';
+		$msg = '<span class="message error">The security code entered was incorrect. Please make sure you have enabled JavaScript.</span>';
 	}
 
 	elseif (!domain_exists($email)) {
-		$msg = '<span class="message error">Please use your real e-mail address.</span><br>';
+		$msg = '<span class="message error">Please use your real e-mail address.</span>';
 	}
 
 	else {
@@ -83,7 +83,7 @@ if (isset($_POST['email'])) {
 		$result2 = mysqli_query($db_link, "SELECT email FROM validation WHERE email='$email' AND type = 1") or ("Can't execute query.");
 
 		if (mysqli_num_rows($result1) || mysqli_num_rows($result2)) {
-			$msg = '<span class="message error">Account <b>'.$email.'</b> already exists</span><br>';
+			$msg = '<span class="message error">Account <b>'.$email.'</b> already exists</span>';
 		}
 
 		else {
@@ -113,9 +113,8 @@ EOD;
 
 		}
 	}
-
-	echo $msg;
-
+	
+	echo $msg ,'<br>';
 }
 
 ?>

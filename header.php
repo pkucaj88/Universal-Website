@@ -24,7 +24,7 @@
 				require_once 'includes/functions.php';
 				
 				if (!isset($_SESSION))
-						sec_session_start();
+					sec_session_start();
 
 				if (isset($_SESSION['userid']) && isset($_SESSION['email'])) {
 
@@ -46,8 +46,7 @@
 						<li><br><a class="floatright" href="account.php">Log in</a></li>
 					</ul>
 				</div>
-				';
-				}
+				';}
 				?>
 			</div>
 			<div class="clear"></div>
@@ -76,7 +75,7 @@
 		</nav>
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-		<script src="res/jquery.smartmenus.js?v4"></script>
+		<script src="res/jquery.smartmenus.js?v1"></script>
 		<script>
 			$(function() {
 				$('#main-menu').smartmenus({

@@ -28,25 +28,25 @@ GetMyConnection();
 		$msg = 'Input data error';
 
 		if ((StrLen($name) < 2) or (StrLen($name) > 60)) {
-			$msg = '<span class="message error">First Name must have at least 2 and not more than 60 characters.</span><br>';
+			$msg = '<span class="message error">First Name must have at least 2 and not more than 60 characters.</span>';
 		}
 		elseif ((StrLen($surname) < 2) or (StrLen($surname) > 60)) {
-			$msg = '<span class="message error">Last Name must have at least 2 and not more than 60 characters.</span><br>';
+			$msg = '<span class="message error">Last Name must have at least 2 and not more than 60 characters.</span>';
 		}
 		elseif ((StrLen($city) < 2) or (StrLen($city) > 60)) {
-			$msg = '<span class="message error">City must have at least 2 and not more than 60 characters.</span><br>';
+			$msg = '<span class="message error">City must have at least 2 and not more than 60 characters.</span>';
 		}
 		elseif ((StrLen($street) < 2) or (StrLen($street) > 60)) {
-			$msg = '<span class="message error">Street must have at least 2 and not more than 60 characters.</span><br>';
+			$msg = '<span class="message error">Street must have at least 2 and not more than 60 characters.</span>';
 		}
 		elseif ((StrLen($postal) < 2) or (StrLen($postal) > 30)) {
-			$msg = '<span class="message error">Postal Code must have at least 2 and not more than 30 characters.</span><br>';
+			$msg = '<span class="message error">Postal Code must have at least 2 and not more than 30 characters.</span>';
 		}
 		elseif ((StrLen($country) < 2) or (StrLen($country) > 30)) {
-			$msg = '<span class="message error">Country must have at least 2 and not more than 30 characters.</span><br>';
+			$msg = '<span class="message error">Country must have at least 2 and not more than 30 characters.</span>';
 		}
 		elseif ((StrLen($phone) < 2) or (StrLen($phone) > 30)) {
-			$msg = '<span class="message error">Phone Number must have at least 2 and not more than 30 characters.</span><br>';
+			$msg = '<span class="message error">Phone Number must have at least 2 and not more than 30 characters.</span>';
 		}
 
 		else {
@@ -60,11 +60,11 @@ GetMyConnection();
 			$phone = mysqli_real_escape_string($db_link, $phone);
 
 			mysqli_query($db_link, "UPDATE user SET name = '$name', surname = '$surname', city = '$city', street = '$street', postal = '$postal', country = '$country', phone = '$phone' WHERE userid = '$userid'") or die("Couldn't perform");
-			$msg = '<span class="message info">Account information successfully updated.</span><br>';
+			$msg = '<span class="message info">Account information successfully updated.</span>';
 
 		}
 
-		echo $msg;
+		echo $msg ,'<br>';
 	}
 
 
@@ -79,7 +79,7 @@ GetMyConnection();
 	$phone = $array['phone'];
 
 
-	echo '<br>
+	echo '
 	<form method="post" action="account.php">
 	<table class="form">
 	<tr><td class="col1"><label>First Name: </label></td><td class="col2"><input name="name" value="',$name,'" type="text" class="input" maxlength="60"/> </td></tr>
